@@ -6,6 +6,7 @@
 ---
 
 根據需求，選x86_64 位元
+
 ![](https://i.imgur.com/nfX52vq.png)
 
 
@@ -14,6 +15,7 @@
 2. 
 
 ![](https://i.imgur.com/ednYoyQ.png)
+
 我想先把硬體設定好，稍後在灌作業系統
 
 
@@ -38,6 +40,9 @@ Alpine 3.13.4版的Kernal 為5.10.xx
 
 ---
 ![](https://i.imgur.com/GfNM0lp.png)
+
+
+
 setup-airpline
 鍵盤配置 tw
 語系    tw
