@@ -76,6 +76,7 @@ setup-airpline
 
 
 ![](https://i.imgur.com/2gAfscQ.png)
+
 必須要清空硬碟讓作業系統安裝，輸入n，不會安裝作業系統
 
 
