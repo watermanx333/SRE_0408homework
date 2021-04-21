@@ -1,89 +1,74 @@
-# 安裝Alpine Linux
-1. 版本 Current Alpine Version 3.13.4 (Released Mar 31, 2021)
-![](https://i.imgur.com/oTbrnXC.png)
+# Linux 程序管理
 
-
----
-
-根據需求，選x86_64 位元
-
-![](https://i.imgur.com/nfX52vq.png)
-
+:arrow_forward: program(程式)，檔案，他一定要具有執行權限。
+:arrow_forward: process(程序)，run程式，如:啟動Word、Excel、作業系統跑得軟體和程式。
 
 ---
 
-2. 
+程序：載入記憶體，紀錄執行者的權限屬性參數，會知道使用者的UID。
+![](https://i.imgur.com/FiawnRu.png)
 
-![](https://i.imgur.com/ednYoyQ.png)
+---
+PowerShell
 
-我想先把硬體設定好，稍後在灌作業系統
+指令→ ps aux (查看有多少process)
+
+ps命令是linux busybox在run的
+
+$ls -al /bin | grep ps
+
+$which busybox ← busybox放在哪個目錄
+![](https://i.imgur.com/n4ek67X.png)
+
+$ls -alh /bin/busybox
+![](https://i.imgur.com/xWB75rt.png)
+(h換成人一看就懂的)
+
+$busybox
+![](https://i.imgur.com/VF37ioG.png)
+
+:pushpin: busybox
+1.檔案很小，只有806k，沒有全功能模擬linux命令，由於檔案小，IP分享器、wifi、物聯網、IOT裝置都是用linux的busybox(cpu都很低階，不需要高效能)
+2.有很多命令，這些命令是C語言或GOLAN寫出來的。
+3.為linux的一個程式。
+$sudo apk add procps
+$ls -al /bin 
+ps→  捷徑檔不見了，完整命令被覆蓋掉。
+
+$sudo nano /etc/profile
+:page_facing_up: 所有人，只要有人登入這台機器，這個program就會被執行。  
+:+1: 在profile裡可用alias更改指令
 
 
 ---
+:pushpin:top 
+可以監看目前所有程式的執行狀況，點1看全部cpu,點q離開
 
-3.
-![](https://i.imgur.com/LoViPua.png)
+---
+:pushpin: pstree  
+程式具有父子關係  
 
+pstree -h 顯示PID號碼  
+![](https://i.imgur.com/9ih5mDv.png)
+(全都是程式)  
 
-硬碟容量夠大，不需要在另外做分割(FAT32 #一種磁區格式)，儲存成一個資料夾
+:bomb:   
+init號碼為1，為系統的一個執行的程式。  
+現在在bash環境下，爸爸為sshd(5646)←也是程式，上圖都是程式。
+PPID→parents process id
+
+~$ echo $PPID
+5646
+
+看自己的PID→ $$PID
 
 
 ---
-
-4. 
-![](https://i.imgur.com/QHfNYhE.png)
-
-
-Version 要注意
-Alpine 3.13.4版的Kernal 為5.10.xx
+:star: 原本的ps放在/bin/ps→$which ps  
+自己做得ps在 /etc/profile
 
 
 ---
-![](https://i.imgur.com/GfNM0lp.png)
-
-
-
-setup-airpline
-鍵盤配置 tw
-語系    tw
-輸入hostname(主機名稱)
-
-
----
-
-![](https://i.imgur.com/961s822.png)
-
-選擇網卡
-是否透過DHCP配發IP位址
-輸入密碼
-選擇時區  Asia #A大寫
-時間     Taipei #T大寫
-
----
-
-![](https://i.imgur.com/GVHwqr8.png)
-
-系統要更新時，選擇要下載的網站
-(輸入f，自己探測哪一種網站速度最快)
-
-
----
-![](https://i.imgur.com/l9h7qNl.png)
-
-哪一種SSH伺服器 openssh
-使用哪一種硬碟   sda
-我們要把它當成系統來使用 sys
-
-
-![](https://i.imgur.com/2gAfscQ.png)
-
-必須要清空硬碟讓作業系統安裝，輸入n，不會安裝作業系統
-
-
----
-![](https://i.imgur.com/0CVFqCv.png)
-
-完成
-
-
-
+:pushpin: 找程式參數意思  
+ps --help
+man ps←完整手冊
