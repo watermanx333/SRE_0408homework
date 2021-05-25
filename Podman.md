@@ -25,4 +25,6 @@ Crun比RunC快一倍
 Podman有兩種模式:1.rootful(root權限執行) 2.rootless(一般帳號執行)
 
 
-
+---
+Podman與Docker不同的地方:
+Docker Daemon的DNS server只會服務同一網段的所有電腦名稱解析(ping電腦名稱可通)，而Podman則沒有辦法(需ping ip位址)
